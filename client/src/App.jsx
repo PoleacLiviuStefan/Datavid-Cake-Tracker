@@ -2,11 +2,9 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import AddMemberForm from './components/AddMemberForm/AddMemberForm';
 import { LeftSide } from './components/LeftSide/LeftSide';
-import { createContext } from 'react';
 import axios from 'axios';
 import { MembersList } from './components/MembersList/MembersList';
 
-export const UrlContext = createContext();
 
 function App() {
   const server_url = "http://localhost:3000";
@@ -55,7 +53,7 @@ function App() {
   };
 
   return (
-    <UrlContext.Provider value={server_url}>
+
       <div className='flex flex-col'>
         <div className='flex flex-col-reverse lg:flex-row justify-center items-center w-full lg:w-[1100px] h-[800px] lg:h-[700px] shadow-lg'>
           <LeftSide submittedForm={submittedForm} />
@@ -66,7 +64,6 @@ function App() {
           <MembersList header="Sorted members list" members={sortedMembers} />
         </div>
       </div>
-    </UrlContext.Provider>
   );
 }
 
